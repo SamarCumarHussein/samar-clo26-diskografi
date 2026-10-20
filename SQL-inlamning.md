@@ -1,8 +1,8 @@
 # SQL-inlämning — Diskografi
 
-**Namn:** [Ditt namn]  
-**Artist:** [Din valda artist]  
-**Datum:** [Datum]
+**Namn:** [Samar Hussein  
+**Artist:** [2Pac]  
+**Datum:** [2026-10-21]
 
 ---
 
@@ -14,7 +14,30 @@
 ## 1. Skapa databasen — CREATE TABLE
 
 ```sql
---- skriv din SQL-kod här ---
+--- 
+CREATE TABLE artists (
+    id INT PRIMARY KEY,
+	name TEXT NOT NULL 
+);
+
+CREATE TABLE albums (
+    id INT PRIMARY KEY,
+	titel TEXT NOT NULL, 
+	release_year INT,
+	artists_id INT,
+	FOREIGN KEY  (artists_id) REFERENCES artists(id)
+);
+
+
+CREATE TABLE songs (
+    id INT PRIMARY KEY, 
+	titel TEXT NOT NULL,
+	lenght INT, 
+	albums_id INT,
+	FOREIGN KEY (albums_id ) REFERENCES albums(id)
+
+);
+ ---
 
 ```
 

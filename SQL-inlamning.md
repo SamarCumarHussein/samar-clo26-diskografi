@@ -132,6 +132,10 @@ WHERE id = 11;
 
 ```sql
 --- uppdatera minst en rad i valfri tabell ---
+-- Valde att ändra längden på låten Brenda's Got a Baby
+UPDATE songs
+SET lenght = 240
+WHERE id = 1;
 
 ```
 

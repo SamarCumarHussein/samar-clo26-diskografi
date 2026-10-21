@@ -109,6 +109,8 @@ ORDER BY titele ASC;
 
 ```sql
 --- lägg till ett nytt album eller en ny låt ---
+INSERT INTO songs (id, titele, lenght, albums_id)
+VALUES (11, 'Keep Ya Head Up', 276, 1);
 
 ```
 
@@ -118,6 +120,9 @@ ORDER BY titele ASC;
 
 ```sql
 --- ta bort en rad ur valfri tabell ---
+-- Valde att tar bara bort den ny inlagt låten.
+DELETE FROM songs
+WHERE id = 11;
 
 ```
 

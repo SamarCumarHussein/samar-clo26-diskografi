@@ -14,7 +14,6 @@
 ## 1. Skapa databasen — CREATE TABLE
 
 ```sql
---- 
 CREATE TABLE artists (
     id INT PRIMARY KEY,
 	name TEXT NOT NULL 
@@ -22,7 +21,7 @@ CREATE TABLE artists (
 
 CREATE TABLE albums (
     id INT PRIMARY KEY,
-	titel TEXT NOT NULL, 
+	titele TEXT NOT NULL, 
 	release_year INT,
 	artists_id INT,
 	FOREIGN KEY  (artists_id) REFERENCES artists(id)
@@ -31,13 +30,12 @@ CREATE TABLE albums (
 
 CREATE TABLE songs (
     id INT PRIMARY KEY, 
-	titel TEXT NOT NULL,
+	titele TEXT NOT NULL,
 	lenght INT, 
 	albums_id INT,
 	FOREIGN KEY (albums_id ) REFERENCES albums(id)
 
 );
- ---
 
 ```
 
@@ -46,7 +44,30 @@ CREATE TABLE songs (
 ## 2. Seeda med data — INSERT
 
 ```sql
---- skriv din SQL-kod här ---
+-- Lägg till artisten 2Pac
+INSERT INTO artists (id, name)
+VALUES (1, '2Pac');
+
+-- Lägg till album kopplade till artisten med id
+INSERT INTO albums (id, titele, release_year, artists_id)
+VALUES
+(1, '2Pacalypse Now', 1991, 1),
+(2, 'Me Against the World', 1995, 1),
+(3, 'All Eyez on Me', 1996, 1);
+
+-- Lägg till låtarna efter albumen
+INSERT INTO songs (id, titele, lenght, albums_id)
+VALUES
+(1, 'Brenda''s Got a Baby', 234, 1),
+(2, 'Trapped', 285, 1),
+(3, 'If My Homie Calls', 258, 1),
+(4, 'Dear Mama', 279, 2),
+(5, 'So Many Tears', 238, 2),
+(6, 'Temptations', 300, 2),
+(7, 'California Love', 285, 3),
+(8, '2 of Amerikaz Most Wanted', 247, 3),
+(9, 'All Eyez on Me', 308, 3),
+(10, 'Hit Em Up', 315, 3);---
 
 ```
 

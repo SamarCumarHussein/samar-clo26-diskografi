@@ -77,18 +77,29 @@ VALUES
 
 ```sql
 --- query 1: Lista alla album, sorterade efter år ---
-
+SELECT * FROM albums 
+ORDER BY release_year ASC;
 
 --- query 2: Lista alla låtar på ett specifikt album ---
+SELECT titele, lenght FROM songs
+WHERE albums_id = 1;
 
 
 --- query 3: Antal låtar per album ---
+SELECT albums.titele,COUNT (songs.id) AS antal_songs
+FROM albums
+JOIN songs ON albums.id = songs.albums_id
+GROUP BY albums.id, albums.titele;
 
 
 --- query 4: Längsta låten ---
-
+SELECT titele, lenght FROM songs 
+ORDER BY lenght DESC 
+LIMIT 1;
 
 --- query 5: Alla låtar sorterade alfabetiskt ---
+SELECT * FROM songs 
+ORDER BY titele ASC;
 
 ```
 
